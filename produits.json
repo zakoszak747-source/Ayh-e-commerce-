@@ -1,1 +1,43 @@
+{
+  "boutique": {
+    "nom": "AYH",
+    "whatsapp": "228XXXXXXXX",
+    "retrait": "Kamina - précise ici le lieu de retrait",
+    "message_commande": "Bonjour AYH, je voudrais commander : {nom} ({prix} FCFA). Réf : {id}"
+  },
+  "produits": [
+    {
+      "id": "USB-32-01",
+      "nom": "Clé USB 32 Go",
+      "categorie": "stockage",
+      "prix": 3500,
+      "etat": "neuf",
+      "stock": 12,
+      "garantie_jours": 30,
+      "description": "Clé USB 3.0, bonne pour les cours et les documents.",
+      "caracteristiques": ["32 Go", "USB 3.0", "Boîtier métal"],
+      "photos": {
+        "miniature": "img/usb-32-01-m.webp",
+        "grandes": ["img/usb-32-01-a.webp", "img/usb-32-01-b.webp", "img/usb-32-01-c.webp"]
+      },
+      "mis_a_jour": "2026-10-02"
+    },
+    {
+      "id": "SOU-02",
+      "nom": "Souris sans fil",
+      "categorie": "accessoires",
+      "prix": 4000,
+      "etat": "neuf",
+      "stock": 0,
+      "garantie_jours": 15,
+      "description": "Souris sans fil avec récepteur USB.",
+      "caracteristiques": ["Sans fil 2,4 GHz", "Pile incluse"],
+      "photos": {
+        "miniature": "img/sou-02-m.webp",
+        "grandes": ["img/sou-02-a.webp", "img/sou-02-b.webp"]
+      },
+      "mis_a_jour": "2026-10-02"
+    }
+  ]
+}
 
