@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#14213d">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<title>AYH Boutique</title>
+<style>
+:root{--ink:#14213d;--fond:#eef1f5;--ligne:#d5dbe4;--tag:#f4b400;--rupt:#a4262c}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+html.grand{font-size:118%}
+body{margin:0;background:var(--fond);color:var(--ink);font:1rem/1.4 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+header{background:var(--ink);color:#fff;padding:12px}
+.ligne{display:flex;align-items:center;gap:10px}
+.logo{width:44px;height:44px;border-radius:6px;flex:0 0 auto}
+.titre{flex:1;min-width:0}
+h1{margin:0;font-size:1.25rem;font-weight:800;letter-spacing:-.02em;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.heure{text-align:right;line-height:1.15;flex:0 0 auto}
+#hm{display:block;font-size:1.125rem;font-weight:700;font-variant-numeric:tabular-nums}
+#jour{display:block;font-size:.75rem;color:#b9c4d9}
+.reglage{flex:0 0 auto;width:44px;height:44px;border:2px solid #fff;border-radius:4px;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center}
+#maj{margin:8px 0 0;font-size:.8125rem;color:#b9c4d9}
+#maj:empty{display:none}
+.panneau{position:fixed;top:0;left:0;right:0;bottom:0;z-index:10;background:rgba(20,33,61,.55);display:flex;align-items:flex-end}
+.panneau[hidden]{display:none}
+.feuille{background:#fff;width:100%;max-height:90%;overflow:auto;padding:16px 16px 20px;border-radius:8px 8px 0 0}
+.feuille h2{margin:0 0 4px;font-size:1.125rem}
+.feuille h3{margin:16px 0 8px;font-size:.9375rem}
+.duo{display:flex;gap:8px}
+.duo button,.btn{min-height:44px;border:2px solid var(--ink);border-radius:4px;background:#fff;color:var(--ink);font:inherit;font-weight:600;padding:0 12px}
+.duo button{flex:1}
+.duo button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.btn{display:block;width:100%}
+.btn.plein{background:var(--ink);color:#fff;margin-top:16px}
+#etat-maj{margin:8px 0 0;font-size:.875rem;color:#46536b;min-height:1.2em}
+.ver{margin:16px 0 0;font-size:.8125rem;color:#46536b}
+.cherche{display:flex;gap:8px;margin-top:10px}
+input,select{font:inherit;min-height:44px;border:0;border-radius:4px;padding:0 12px;color:var(--ink);background:#fff}
+#q{flex:1;min-width:0}
+#tri{flex:0 0 auto;max-width:46%}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #0b57d0;outline-offset:2px}
+header :focus-visible{outline-color:#fff}
+.puces{display:flex;gap:8px;overflow-x:auto;padding:10px 12px;position:sticky;top:0;z-index:4;background:var(--fond);-webkit-overflow-scrolling:touch}
+.puce{flex:0 0 auto;min-height:44px;padding:0 16px;border:2px solid var(--ink);border-radius:4px;background:transparent;color:var(--ink);font:inherit;font-weight:600}
+.puce.actif{background:var(--ink);color:#fff}
+.msg{margin:2px 12px 8px;font-size:.875rem;color:#46536b}
+.msg.erreur{color:var(--rupt);font-weight:600;font-size:1rem}
+.grille{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:0 10px 24px}
+.carte{background:#fff;border:1px solid var(--ligne);border-radius:4px;overflow:hidden}
+.photo{position:relative;padding-top:100%;background:#dfe4ec}
+.photo img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover}
+.photo.vide span{position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:8px;font-size:.8125rem;color:#5b6678}
+.badges{position:absolute;top:6px;left:6px;display:flex;gap:4px;flex-wrap:wrap}
+.badge{background:#fff;border:1px solid var(--ink);border-radius:3px;padding:2px 6px;font-size:.75rem;font-weight:600}
+.badge.rupture{background:var(--rupt);border-color:var(--rupt);color:#fff}
+.prix{position:absolute;left:0;bottom:8px;background:var(--tag);color:var(--ink);font-weight:800;font-size:.9375rem;padding:4px 10px 4px 14px;clip-path:polygon(8px 0,100% 0,100% 100%,8px 100%,0 50%)}
+.corps{padding:8px 10px 10px}
+.corps h2{margin:0;font-size:.9375rem;font-weight:600;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.epuise img{opacity:.45}
+.epuise .prix{background:#c9ced8}
+.carte{display:block;color:inherit;text-decoration:none;-webkit-tap-highlight-color:rgba(20,33,61,.12)}
+body.detail .cherche,body.detail #maj{display:none}
+.fiche{max-width:560px;margin:0 auto;padding:10px 10px 28px}
+.retour{min-height:44px;padding:0 14px;border:2px solid var(--ink);border-radius:4px;background:transparent;color:var(--ink);font:inherit;font-weight:600;margin-bottom:10px}
+.carrousel{position:relative}
+.piste{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;border:1px solid var(--ligne);border-radius:4px;background:#dfe4ec}
+.diapo{flex:0 0 100%;scroll-snap-align:center;position:relative;padding-top:100%}
+.diapo img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;background:#fff}
+.diapo.vide span{position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:8px;font-size:.875rem;color:#5b6678}
+.indic{position:absolute;right:8px;bottom:8px;background:rgba(20,33,61,.85);color:#fff;font-size:.8125rem;padding:2px 8px;border-radius:3px}
+.detail{padding-top:14px}
+.rang{display:flex;gap:6px;flex-wrap:wrap}
+.badge.ok{background:#e3f4ea;border-color:#0f7a40;color:#0b5a2f}
+.nom-d{margin:10px 0 8px;font-size:1.25rem;line-height:1.25}
+.prix-d{display:inline-block;background:var(--tag);color:var(--ink);font-weight:800;font-size:1.375rem;padding:6px 14px 6px 22px;clip-path:polygon(10px 0,100% 0,100% 100%,10px 100%,0 50%)}
+.prix-d.gris{background:#c9ced8}
+.note{margin:8px 0 0;font-size:.875rem;color:#46536b}
+.garantie{margin:6px 0 0;font-weight:600}
+.cta{margin:16px 0}
+.wa{display:flex;align-items:center;justify-content:center;min-height:56px;width:100%;border-radius:4px;font-weight:700;font-size:1.0625rem;text-decoration:none;text-align:center;padding:0 16px}
+.wa.plein{background:#0f7a40;color:#fff}
+.wa.second{background:#fff;color:#0f7a40;border:2px solid #0f7a40}
+.indispo{margin:0 0 10px;padding:12px;border:1px dashed #8793a8;border-radius:4px;color:#46536b;background:#fff}
+.desc{margin:16px 0 0}
+.fiche h3{margin:18px 0 6px;font-size:1rem}
+.carac{margin:0;padding-left:20px}
+.confiance{margin-top:20px;border:1px solid var(--ligne);background:#fff;border-radius:4px;padding:2px 14px 12px}
+</style>
+</head>
+<body>
+<header>
+  <div class="ligne">
+    <img class="logo" src="icons/icon-192.png" alt="Logo AYH" width="44" height="44">
+    <div class="titre"><h1 id="nom">AYH Boutique</h1></div>
+    <div class="heure"><span id="hm">--:--</span><span id="jour"></span></div>
+    <button type="button" id="reg" class="reglage" aria-label="Réglages">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    </button>
+  </div>
+  <p id="maj"></p>
+  <div class="cherche">
+    <input id="q" type="search" placeholder="Rechercher un produit" aria-label="Rechercher un produit" autocomplete="off">
+    <select id="tri" aria-label="Trier par prix">
+      <option value="">Trier</option>
+      <option value="asc">Prix croissant</option>
+      <option value="desc">Prix décroissant</option>
+    </select>
+  </div>
+</header>
+<div id="liste">
+<nav id="puces" class="puces" aria-label="Catégories"></nav>
+<p id="msg" class="msg" role="status">Chargement du catalogue…</p>
+<main id="grille" class="grille"></main>
+</div>
+<section id="fiche" class="fiche" hidden></section>
+<div id="panneau" class="panneau" hidden>
+  <div class="feuille" role="dialog" aria-modal="true" aria-labelledby="t-reg">
+    <h2 id="t-reg">Réglages</h2>
+    <h3>Taille du texte</h3>
+    <div class="duo">
+      <button type="button" id="t-normal" aria-pressed="true">Normale</button>
+      <button type="button" id="t-grand" aria-pressed="false">Grande</button>
+    </div>
+    <h3>Catalogue</h3>
+    <button type="button" id="maj-cat" class="btn">Actualiser le catalogue</button>
+    <p id="etat-maj" role="status"></p>
+    <button type="button" id="fermer" class="btn plein">Fermer</button>
+    <p class="ver">AYH Boutique, version 2</p>
+  </div>
+</div>
+<script>
+(function(){
+  var produits = [], cat = '', boutique = {}, pret = false, enDetail = false, venuDeListe = false, scrollListe = 0, appels = 0;
+  function $(id){ return document.getElementById(id); }
+  function fcfa(n){ return String(Math.round(Number(n) || 0)).replace(/\B(?=(\d{3})+(?!\d))/g, '\u00A0') + '\u00A0FCFA'; }
+  function norm(s){ return String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); }
+  function cap(s){ s = String(s || ''); return s.charAt(0).toUpperCase() + s.slice(1); }
+  function dateFr(iso){
+    var d = new Date(iso + 'T00:00:00');
+    return isNaN(d) ? '' : d.toLocaleDateString('fr-FR', {day:'numeric', month:'long', year:'numeric'});
+  }
+
+  function carte(p){
+    var a = document.createElement('a');
+    a.href = '#produit/' + encodeURIComponent(p.id);
+    var epuise = Number(p.stock) <= 0;
+    a.className = 'carte' + (epuise ? ' epuise' : '');
+    var ph = document.createElement('div');
+    ph.className = 'photo';
+    function vide(){
+      ph.classList.add('vide');
+      var s = document.createElement('span');
+      s.textContent = 'Photo indisponible';
+      ph.appendChild(s);
+    }
+    var src = p.photos && p.photos.miniature;
+    if (src) {
+      var im = document.createElement('img');
+      im.loading = 'lazy';
+      im.alt = p.nom || '';
+      im.src = src;
+      im.onerror = function(){ if (im.parentNode) im.parentNode.removeChild(im); vide(); };
+      ph.appendChild(im);
+    } else { vide(); }
+    var bd = document.createElement('div');
+    bd.className = 'badges';
+    if (p.etat) {
+      var e = document.createElement('span');
+      e.className = 'badge';
+      e.textContent = cap(p.etat);
+      bd.appendChild(e);
+    }
+    if (epuise) {
+      var r = document.createElement('span');
+      r.className = 'badge rupture';
+      r.textContent = 'Épuisé';
+      bd.appendChild(r);
+    }
+    ph.appendChild(bd);
+    var pr = document.createElement('div');
+    pr.className = 'prix';
+    pr.textContent = fcfa(p.prix);
+    ph.appendChild(pr);
+    var corps = document.createElement('div');
+    corps.className = 'corps';
+    var h = document.createElement('h2');
+    h.textContent = p.nom || '';
+    corps.appendChild(h);
+    a.appendChild(ph);
+    a.appendChild(corps);
+    return a;
+  }
+
+  function afficher(){
+    var q = norm($('q').value.trim()), tri = $('tri').value;
+    var l = produits.filter(function(p){
+      return (!cat || p.categorie === cat) && (!q || norm(p.nom).indexOf(q) > -1);
+    });
+    if (tri === 'asc') l.sort(function(a, b){ return a.prix - b.prix; });
+    if (tri === 'desc') l.sort(function(a, b){ return b.prix - a.prix; });
+    var g = $('grille');
+    g.textContent = '';
+    l.forEach(function(p){ g.appendChild(carte(p)); });
+    var m = $('msg');
+    m.className = 'msg';
+    m.textContent = l.length
+      ? l.length + (l.length > 1 ? ' produits' : ' produit')
+      : 'Aucun produit trouvé. Essaie un autre mot ou une autre catégorie.';
+  }
+
+  function puces(){
+    var cats = [];
+    produits.forEach(function(p){
+      if (p.categorie && cats.indexOf(p.categorie) < 0) cats.push(p.categorie);
+    });
+    var box = $('puces');
+    box.textContent = '';
+    [''].concat(cats).forEach(function(c){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'puce' + (c === cat ? ' actif' : '');
+      b.setAttribute('data-c', c);
+      b.textContent = c ? cap(c) : 'Tout';
+      b.onclick = function(){
+        cat = c;
+        Array.prototype.forEach.call(box.children, function(x){
+          x.classList.toggle('actif', x.getAttribute('data-c') === cat);
+        });
+        afficher();
+      };
+      box.appendChild(b);
+    });
+  }
+
+  function el(tag, cls, txt){
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (txt !== undefined && txt !== null) n.textContent = txt;
+    return n;
+  }
+  function lienWa(texte){
+    var brut = String(boutique.whatsapp || '');
+    var num = brut.replace(/\D/g, '');
+    if (!brut || /x/i.test(brut) || num.length < 8) return null;
+    return 'https://wa.me/' + num + '?text=' + encodeURIComponent(texte);
+  }
+  function remplir(modele, p){
+    return String(modele)
+      .replace(/\{prix\}(\s*FCFA)?/gi, function(){ return fcfa(p.prix); })
+      .replace(/\{nom\}/g, function(){ return p.nom || ''; })
+      .replace(/\{id\}/g, function(){ return String(p.id); });
+  }
+  function boutonWa(href, texte, cls){
+    var a = el('a', 'wa ' + cls, texte);
+    a.href = href;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    return a;
+  }
+  function carrousel(p){
+    var photos = (p.photos && p.photos.grandes) || [];
+    var box = el('div', 'carrousel');
+    var piste = el('div', 'piste');
+    piste.tabIndex = 0;
+    piste.setAttribute('aria-label', 'Photos du produit');
+    function diapo(src){
+      var d = el('div', 'diapo');
+      function vide(){ d.classList.add('vide'); d.appendChild(el('span', null, 'Photo indisponible')); }
+      if (src) {
+        var im = document.createElement('img');
+        im.loading = 'lazy';
+        im.alt = p.nom || '';
+        im.src = src;
+        im.onerror = function(){ if (im.parentNode) im.parentNode.removeChild(im); vide(); };
+        d.appendChild(im);
+      } else { vide(); }
+      return d;
+    }
+    if (!photos.length) photos = [''];
+    photos.forEach(function(s){ piste.appendChild(diapo(s)); });
+    box.appendChild(piste);
+    if (photos.length > 1) {
+      var ind = el('span', 'indic', '1/' + photos.length);
+      ind.setAttribute('aria-hidden', 'true');
+      box.appendChild(ind);
+      piste.addEventListener('scroll', function(){
+        var i = Math.round(piste.scrollLeft / (piste.clientWidth || 1)) + 1;
+        ind.textContent = Math.min(i, photos.length) + '/' + photos.length;
+      });
+    }
+    return box;
+  }
+
+  function montrerFiche(p){
+    var f = $('fiche');
+    f.textContent = '';
+    var epuise = Number(p.stock) <= 0;
+    var ret = el('button', 'retour', 'Retour à la liste');
+    ret.type = 'button';
+    ret.onclick = function(){
+      if (venuDeListe) { history.back(); }
+      else { history.replaceState(null, '', location.pathname + location.search); route(); }
+    };
+    f.appendChild(ret);
+    f.appendChild(carrousel(p));
+
+    var c = el('div', 'detail');
+    var rang = el('div', 'rang');
+    if (p.etat) rang.appendChild(el('span', 'badge', cap(p.etat)));
+    rang.appendChild(el('span', 'badge ' + (epuise ? 'rupture' : 'ok'), epuise ? 'Épuisé' : 'En stock'));
+    c.appendChild(rang);
+    c.appendChild(el('h2', 'nom-d', p.nom || ''));
+    c.appendChild(el('div', 'prix-d' + (epuise ? ' gris' : ''), fcfa(p.prix)));
+    var t = p.mis_a_jour ? dateFr(p.mis_a_jour) : '';
+    c.appendChild(el('p', 'note', 'Confirme le prix à la commande.' + (t ? ' Prix du ' + t + '.' : '')));
+    var g = p.garantie_jours;
+    var gDef = g !== undefined && g !== null && g !== '';
+    if (gDef) {
+      c.appendChild(el('p', 'garantie', Number(g) > 0 ? 'Garantie : ' + g + (Number(g) === 1 ? ' jour' : ' jours') : 'Sans garantie'));
+    }
+
+    var cta = el('div', 'cta');
+    var absent = function(){ return el('p', 'indispo', 'Numéro WhatsApp non configuré'); };
+    var nomBout = boutique.nom || 'AYH';
+    if (epuise) {
+      cta.appendChild(el('p', 'indispo', 'Produit épuisé. Écris-nous pour être prévenu(e).'));
+      var l2 = lienWa(remplir('Bonjour ' + nomBout + ', préviens-moi quand {nom} sera disponible. Réf : {id}', p));
+      cta.appendChild(l2 ? boutonWa(l2, 'Me prévenir sur WhatsApp', 'second') : absent());
+    } else {
+      var l1 = lienWa(remplir(boutique.message_commande || 'Bonjour ' + nomBout + ', je voudrais commander : {nom} ({prix}). Réf : {id}', p));
+      cta.appendChild(l1 ? boutonWa(l1, 'Commander sur WhatsApp', 'plein') : absent());
+    }
+    c.appendChild(cta);
+
+    if (p.description) c.appendChild(el('p', 'desc', p.description));
+    if (p.caracteristiques && p.caracteristiques.length) {
+      c.appendChild(el('h3', null, 'Caractéristiques'));
+      var ul = el('ul', 'carac');
+      p.caracteristiques.forEach(function(x){ ul.appendChild(el('li', null, x)); });
+      c.appendChild(ul);
+    }
+
+    var cf = el('div', 'confiance');
+    cf.appendChild(el('h3', null, 'Retrait et garantie'));
+    var li = el('ul', 'carac');
+    if (boutique.retrait) li.appendChild(el('li', null, 'Retrait : ' + boutique.retrait));
+    if (!(gDef && Number(g) <= 0)) li.appendChild(el('li', null, 'Garantie écrite remise avec le produit'));
+    li.appendChild(el('li', null, 'Reçu remis à l\u2019achat'));
+    cf.appendChild(li);
+    c.appendChild(cf);
+    f.appendChild(c);
+
+    document.title = (p.nom || '') + ' | ' + nomBout;
+    $('liste').hidden = true;
+    f.hidden = false;
+    document.body.classList.add('detail');
+    window.scrollTo(0, 0);
+    ret.focus();
+  }
+
+  function route(){
+    var premier = appels++ === 0;
+    var m = /^#produit\/(.+)$/.exec(location.hash), p = null;
+    if (m) {
+      var id = '';
+      try { id = decodeURIComponent(m[1]); } catch (e) {}
+      p = produits.filter(function(x){ return String(x.id) === id; })[0] || null;
+    }
+    if (p) {
+      if (!enDetail) { scrollListe = window.scrollY; venuDeListe = !premier; }
+      enDetail = true;
+      montrerFiche(p);
+    } else {
+      var etait = enDetail;
+      enDetail = false;
+      $('fiche').hidden = true;
+      $('liste').hidden = false;
+      document.body.classList.remove('detail');
+      document.title = boutique.nom || 'AYH Boutique';
+      if (m) history.replaceState(null, '', location.pathname + location.search);
+      if (etait) window.scrollTo(0, scrollListe);
+    }
+  }
+
+  function charger(force){
+    return fetch('produits.json', force ? {cache:'reload'} : undefined)
+      .then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function(d){
+        if (d.boutique && d.boutique.nom) {
+          $('nom').textContent = d.boutique.nom;
+          document.title = d.boutique.nom;
+        }
+        boutique = d.boutique || {};
+        produits = Array.isArray(d.produits) ? d.produits : [];
+        var maj = produits.map(function(p){ return p.mis_a_jour || ''; }).sort().pop();
+        var t = maj ? dateFr(maj) : '';
+        if (t) $('maj').textContent = 'Prix et stock du ' + t;
+        puces();
+        afficher();
+        if (!pret) { pret = true; route(); }
+        return true;
+      })
+      .catch(function(){
+        if (!produits.length) {
+          var m = $('msg');
+          m.className = 'msg erreur';
+          m.textContent = 'Le catalogue (produits.json) ne s\u2019est pas chargé. Vérifie ta connexion, puis recharge la page.';
+        }
+        return false;
+      });
+  }
+
+  $('q').addEventListener('input', afficher);
+  $('tri').addEventListener('change', afficher);
+
+  var dernier = '';
+  function horloge(){
+    var n = new Date();
+    var hm = ('0' + n.getHours()).slice(-2) + ':' + ('0' + n.getMinutes()).slice(-2);
+    if (hm !== dernier) {
+      dernier = hm;
+      $('hm').textContent = hm;
+      $('jour').textContent = n.toLocaleDateString('fr-FR', {weekday:'short', day:'numeric', month:'short'});
+    }
+  }
+  horloge();
+  setInterval(horloge, 1000);
+
+  var CLE = 'ayh-taille';
+  function lire(){ try { return localStorage.getItem(CLE); } catch (e) { return null; } }
+  function ecrire(v){ try { localStorage.setItem(CLE, v); } catch (e) {} }
+  function taille(v){
+    document.documentElement.classList.toggle('grand', v === 'grand');
+    $('t-normal').setAttribute('aria-pressed', String(v !== 'grand'));
+    $('t-grand').setAttribute('aria-pressed', String(v === 'grand'));
+  }
+  taille(lire());
+  $('t-normal').onclick = function(){ ecrire('normal'); taille('normal'); };
+  $('t-grand').onclick = function(){ ecrire('grand'); taille('grand'); };
+
+  var pan = $('panneau'), reg = $('reg');
+  function ouvrir(){ pan.hidden = false; $('fermer').focus(); }
+  function fermer(){ pan.hidden = true; reg.focus(); }
+  reg.onclick = ouvrir;
+  $('fermer').onclick = fermer;
+  pan.addEventListener('click', function(e){ if (e.target === pan) fermer(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !pan.hidden) fermer(); });
+  $('maj-cat').onclick = function(){
+    var s = $('etat-maj');
+    s.textContent = 'Mise à jour en cours…';
+    charger(true).then(function(ok){
+      s.textContent = ok ? 'Catalogue à jour.' : 'Pas de connexion. Le catalogue enregistré reste affiché.';
+    });
+  };
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function(){
+      navigator.serviceWorker.register('sw.js').catch(function(){});
+    });
+  }
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  window.addEventListener('hashchange', function(){ if (pret) route(); });
+  charger();
+})();
+</script>
+</body>
+</html>
