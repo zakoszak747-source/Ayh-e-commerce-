@@ -1,12 +1,12 @@
 /* AYH Boutique - service worker.
    Pour publier une mise à jour de l'appli, change VERSION ci-dessous.
    Convention : les miniatures se terminent par -m (ex. img/usb-32-01-m.webp). */
-var VERSION = 'v2';
+var VERSION = 'v4';
 var SHELL = 'ayh-shell-' + VERSION;
 var MINI = 'ayh-mini';
 var PHOTOS = 'ayh-photos';
 var MAX_PHOTOS = 30;
-var COEUR = ['./', 'index.html', 'manifest.json', 'produits.json',
+var COEUR = ['./', 'index.html', 'document.js', 'manifest.json', 'produits.json',
   'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-maskable-512.png'];
 var EST_MINI = /-m\.(webp|jpe?g|png)$/i;
 var EST_IMAGE = /\.(webp|jpe?g|png|gif|svg)$/i;
