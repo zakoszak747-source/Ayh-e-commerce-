@@ -1,7 +1,7 @@
 {
   "boutique": {
     "nom": "AYH",
-    "whatsapp": "228XXXXXXXX",
+    "whatsapp": "22898311080",
     "retrait":"Livraison partout, convenue par WhatsApp.",
     "message_commande": "Bonjour AYH, je voudrais commander : {nom} ({prix} FCFA). Réf : {id}"
   },
