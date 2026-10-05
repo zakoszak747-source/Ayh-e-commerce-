@@ -1,44 +1,598 @@
 {
   "boutique": {
-    "nom": "AYH",
-    "whatsapp": "22898311080",
-    "retrait":"Livraison partout, convenue par WhatsApp.",
+    "nom": "AYH Boutique",
+    "whatsapp": "228XXXXXXXX",
+    "livraison": "Livraison partout, convenue par WhatsApp.",
+    "horaires": "À compléter",
     "couverture": "img/couverture-m.webp",
-    "message_commande": "Bonjour AYH, je voudrais commander : {nom} ({prix} FCFA). Réf : {id}"
+    "message_commande": "Bonjour AYH, je voudrais commander : {nom} ({prix}). Réf : {id}",
+    "categories": {
+      "informatique": "Informatique",
+      "vetements": "Vêtements",
+      "chaussures": "Chaussures",
+      "telephones": "Téléphones",
+      "accessoires-telephone": "Accessoires téléphone",
+      "vivriers": "Produits vivriers"
+    }
   },
   "produits": [
     {
       "id": "USB-32-01",
       "nom": "Clé USB 32 Go",
-      "categorie": "stockage",
+      "categorie": "informatique",
       "prix": 3500,
       "etat": "neuf",
       "stock": 12,
       "garantie_jours": 30,
       "description": "Clé USB 3.0, bonne pour les cours et les documents.",
-      "caracteristiques": ["32 Go", "USB 3.0", "Boîtier métal"],
+      "caracteristiques": [
+        "32 Go",
+        "USB 3.0",
+        "Boîtier métal"
+      ],
       "photos": {
         "miniature": "img/usb-32-01-m.webp",
-        "grandes": ["img/usb-32-01-a.webp", "img/usb-32-01-b.webp", "img/usb-32-01-c.webp"]
+        "grandes": [
+          "img/usb-32-01-a.webp",
+          "img/usb-32-01-b.webp",
+          "img/usb-32-01-c.webp"
+        ]
       },
       "mis_a_jour": "2026-10-02"
     },
     {
       "id": "SOU-02",
       "nom": "Souris sans fil",
-      "categorie": "accessoires",
+      "categorie": "informatique",
       "prix": 4000,
       "etat": "neuf",
-      "stock": 10,
+      "stock": 0,
       "garantie_jours": 15,
       "description": "Souris sans fil avec récepteur USB.",
-      "caracteristiques": ["Sans fil 2,4 GHz", "Pile incluse"],
+      "caracteristiques": [
+        "Sans fil 2,4 GHz",
+        "Pile incluse"
+      ],
       "photos": {
         "miniature": "img/sou-02-m.webp",
-        "grandes": ["img/sou-02-a.webp", "img/sou-02-b.webp"]
+        "grandes": [
+          "img/sou-02-a.webp",
+          "img/sou-02-b.webp"
+        ]
       },
       "mis_a_jour": "2026-10-02"
+    },
+    {
+      "id": "vet-chemise-pagne-01",
+      "nom": "Chemise en pagne",
+      "categorie": "vetements",
+      "prix": 0,
+      "etat": "neuf",
+      "stock": 0,
+      "tailles": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "couleurs": [
+        "Noir",
+        "Blanc",
+        "Bleu"
+      ],
+      "description": "À compléter : matière, coupe, entretien.",
+      "caracteristiques": [
+        "Matière : à compléter",
+        "Coupe : à compléter"
+      ],
+      "photos": {
+        "miniature": "img/vet-chemise-pagne-01-m.webp",
+        "grandes": [
+          "img/vet-chemise-pagne-01-a.webp",
+          "img/vet-chemise-pagne-01-b.webp"
+        ]
+      },
+      "mis_a_jour": "2026-10-05"
+    },
+    {
+      "id": "vet-robe-wax-01",
+      "nom": "Robe en wax",
+      "categorie": "vetements",
+      "prix": 0,
+      "etat": "neuf",
+      "stock": 0,
+      "tailles": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "couleurs": [
+        "Noir",
+        "Blanc",
+        "Bleu"
+      ],
+      "description": "À compléter : matière, coupe, entretien.",
+      "caracteristiques": [
+        "Matière : à compléter",
+        "Longueur : à compléter"
+      ],
+      "photos": {
+        "miniature": "img/vet-robe-wax-01-m.webp",
+        "grandes": [
+          "img/vet-robe-wax-01-a.webp",
+          "img/vet-robe-wax-01-b.webp"
+        ]
+      },
+      "mis_a_jour": "2026-10-05"
+    },
+    {
+      "id": "vet-tshirt-homme-01",
+      "nom": "T-shirt homme",
+      "categorie": "vetements",
+      "prix": 0,
+      "etat": "neuf",
+      "stock": 0,
+      "tailles": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "couleurs": [
+        "Noir",
+        "Blanc",
+        "Bleu"
+      ],
+      "description": "À compléter : matière, coupe, entretien.",
+      "caracteristiques": [
+        "Matière : à compléter",
+        "Col : à compléter"
+      ],
+      "photos": {
+        "miniature": "img/vet-tshirt-homme-01-m.webp",
+        "grandes": [
+          "img/vet-tshirt-homme-01-a.webp",
+          "img/vet-tshirt-homme-01-b.webp"
+        ]
+      },
+      "mis_a_jour": "2026-10-05"
+    },
+    {
+      "id": "vet-jean-femme-01",
+      "nom": "Jean femme",
+      "categorie": "vetements",
+      "prix": 0,
+      "etat": "neuf",
+      "stock": 0,
+      "tailles": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "couleurs": [
+        "Noir",
+        "Blanc",
+        "Bleu"
+      ],
+      "description": "À compléter : matière, coupe, entretien.",
+      "caracteristiques": [
+        "Matière : à compléter",
+        "Coupe : à compléter"
+      ],
+      "photos": {
+        "miniature": "img/vet-jean-femme-01-m.webp",
+        "grandes": [
+          "img/vet-jean-femme-01-a.webp",
+          "img/vet-jean-femme-01-b.webp"
+        ]
+      },
+      "mis_a_jour": "2026-10-05"
+    },
+    {
+      "id": "chaus-basket-01",
+      "nom": "Baskets",
+      "categorie": "chaussures",
+      "prix": 0,
+      "etat": "neuf",
+      "stock": 0,
+      "tailles": [
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44"
+      ],
+      "couleurs": [
+        "Noir",
+        "Marron"
+      ],
+      "description": "À compléter : matière, semelle, usage.",
+      "caracteristiques": [
+        "Matière : à compléter",
+        "Semelle : à compléter"
+      ],
+      "photos": {
+        "miniature": "img/chaus-basket-01-m.webp",
+        "grandes": [
+          "img/chaus-basket-01-a.webp",
+          "img/chaus-basket-01-b.webp"
+        ]
+      },
+      "mis_a_jour": "2026-10-05"
+    },
+    {
+      "id": "chaus-sandale-01",
+      "nom": "Sandales",
+      "categorie": "chaussures",
+      "prix": 0,
+      "etat": "neuf",
+      "stock": 0,
+      "tailles": [
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44"
+      ],
+      "couleurs": [
+        "Noir",
+        "Marron"
+      ],
+      "description": "À compléter : matière, semelle, usage.",
+      "caracteristiques": [
+        "Matière : à compléter",
+        "Semelle : à compléter"
+      ],
+      "photos": {
+        "miniature": "img/chaus-sandale-01-m.webp",
+        "grandes": [
+          "img/chaus-sandale-01-a.webp",
+          "img/chaus-sandale-01-b.webp"
+        ]
+      },
+      "mis_a_jour": "2026-10-05"
+    },
+    {
+      "id": "chaus-ville-homme-01",
+      "nom": "Chaussures de ville homme",
+      "categorie": "chaussures",
+      "prix": 0,
+      "etat": "neuf",
+      "stock": 0,
+      "tailles": [
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44"
+      ],
+      "couleurs": [
+        "Noir",
+        "Marron"
+      ],
+      "description": "À compléter : matière, semelle, usage.",
+      "caracteristiques": [
+        "Matière : à compléter",
+        "Semelle : à compléter"
+      ],
+      "photos": {
+        "miniature": "img/chaus-ville-homme-01-m.webp",
+        "grandes": [
+          "img/chaus-ville-homme-01-a.webp",
+          "img/chaus-ville-homme-01-b.webp"
+        ]
+      },
+      "mis_a_jour": "2026-10-05"
+    },
+    {
+      "id": "chaus-claquette-01",
+      "nom": "Claquettes",
+      "categorie": "chaussures",
+      "prix": 0,
+      "etat": "neuf",
+      "stock": 0,
+      "tailles": [
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44"
+      ],
+      "couleurs": [
+        "Noir",
+        "Marron"
+      ],
+      "description": "À compléter : matière, semelle, usage.",
+      "caracteristiques": [
+        "Matière : à compléter",
+        "Semelle : à compléter"
+      ],
+      "photos": {
+        "miniature": "img/chaus-claquette-01-m.webp",
+        "grandes": [
+          "img/chaus-claquette-01-a.webp",
+          "img/chaus-claquette-01-b.webp"
+        ]
+      },
+      "mis_a_jour": "2026-10-05"
+    },
+    {
+      "id": "tel-android-a15-01",
+      "nom": "Smartphone Android (modèle à préciser)",
+      "categorie": "telephones",
+      "prix": 0,
+      "etat": "neuf",
+      "stock": 0,
+      "marque": "À compléter",
+      "description": "À compléter : modèle exact, mémoire, état, accessoires fournis, garantie.",
+      "caracteristiques": [
+        "Modèle : à compléter",
+        "Mémoire : à compléter",
+        "Écran : à compléter"
+      ],
+      "photos": {
+        "miniature": "img/tel-android-a15-01-m.webp",
+        "grandes": [
+          "img/tel-android-a15-01-a.webp",
+          "img/tel-android-a15-01-b.webp"
+        ]
+      },
+      "mis_a_jour": "2026-10-05"
+    },
+    {
+      "id": "tel-android-bas-01",
+      "nom": "Smartphone d'entrée de gamme",
+      "categorie": "telephones",
+      "prix": 0,
+      "etat": "neuf",
+      "stock": 0,
+      "marque": "À compléter",
+      "description": "À compléter : modèle exact, mémoire, état, accessoires fournis, garantie.",
+      "caracteristiques": [
+        "Modèle : à compléter",
+        "Mémoire : à compléter"
+      ],
+      "photos": {
+        "miniature": "img/tel-android-bas-01-m.webp",
+        "grandes": [
+          "img/tel-android-bas-01-a.webp",
+          "img/tel-android-bas-01-b.webp"
+        ]
+      },
+      "mis_a_jour": "2026-10-05"
+    },
+    {
+      "id": "tel-basique-01",
+      "nom": "Téléphone à touches",
+      "categorie": "telephones",
+      "prix": 0,
+      "etat": "neuf",
+      "stock": 0,
+      "marque": "À compléter",
+      "description": "À compléter : modèle exact, mémoire, état, accessoires fournis, garantie.",
+      "caracteristiques": [
+        "Modèle : à compléter",
+        "Double SIM : à compléter"
+      ],
+      "photos": {
+        "miniature": "img/tel-basique-01-m.webp",
+        "grandes": [
+          "img/tel-basique-01-a.webp",
+          "img/tel-basique-01-b.webp"
+        ]
+      },
+      "mis_a_jour": "2026-10-05"
+    },
+    {
+      "id": "acc-chargeur-01",
+      "nom": "Chargeur rapide",
+      "categorie": "accessoires-telephone",
+      "prix": 0,
+      "etat": "neuf",
+      "stock": 0,
+      "marque": "À compléter",
+      "description": "À compléter : compatibilité, puissance ou capacité, marque.",
+      "caracteristiques": [
+        "Puissance : à compléter",
+        "Prise : à compléter"
+      ],
+      "photos": {
+        "miniature": "img/acc-chargeur-01-m.webp",
+        "grandes": [
+          "img/acc-chargeur-01-a.webp",
+          "img/acc-chargeur-01-b.webp"
+        ]
+      },
+      "mis_a_jour": "2026-10-05"
+    },
+    {
+      "id": "acc-ecouteurs-01",
+      "nom": "Écouteurs",
+      "categorie": "accessoires-telephone",
+      "prix": 0,
+      "etat": "neuf",
+      "stock": 0,
+      "marque": "À compléter",
+      "description": "À compléter : compatibilité, puissance ou capacité, marque.",
+      "caracteristiques": [
+        "Type : à compléter",
+        "Connexion : à compléter"
+      ],
+      "photos": {
+        "miniature": "img/acc-ecouteurs-01-m.webp",
+        "grandes": [
+          "img/acc-ecouteurs-01-a.webp",
+          "img/acc-ecouteurs-01-b.webp"
+        ]
+      },
+      "mis_a_jour": "2026-10-05"
+    },
+    {
+      "id": "acc-coque-01",
+      "nom": "Coque de protection",
+      "categorie": "accessoires-telephone",
+      "prix": 0,
+      "etat": "neuf",
+      "stock": 0,
+      "couleurs": [
+        "Noir",
+        "Transparent"
+      ],
+      "description": "À compléter : compatibilité, puissance ou capacité, marque.",
+      "caracteristiques": [
+        "Modèle compatible : à compléter"
+      ],
+      "photos": {
+        "miniature": "img/acc-coque-01-m.webp",
+        "grandes": [
+          "img/acc-coque-01-a.webp",
+          "img/acc-coque-01-b.webp"
+        ]
+      },
+      "mis_a_jour": "2026-10-05"
+    },
+    {
+      "id": "acc-batterie-ext-01",
+      "nom": "Batterie externe",
+      "categorie": "accessoires-telephone",
+      "prix": 0,
+      "etat": "neuf",
+      "stock": 0,
+      "marque": "À compléter",
+      "description": "À compléter : compatibilité, puissance ou capacité, marque.",
+      "caracteristiques": [
+        "Capacité : à compléter",
+        "Ports : à compléter"
+      ],
+      "photos": {
+        "miniature": "img/acc-batterie-ext-01-m.webp",
+        "grandes": [
+          "img/acc-batterie-ext-01-a.webp",
+          "img/acc-batterie-ext-01-b.webp"
+        ]
+      },
+      "mis_a_jour": "2026-10-05"
+    },
+    {
+      "id": "viv-riz-local-01",
+      "nom": "Riz local",
+      "categorie": "vivriers",
+      "prix": 0,
+      "etat": "neuf",
+      "stock": 0,
+      "unite": "sac de 25 kg",
+      "garantie_jours": 0,
+      "description": "À compléter : origine, conditionnement, conservation.",
+      "caracteristiques": [
+        "Origine : à compléter"
+      ],
+      "photos": {
+        "miniature": "img/viv-riz-local-01-m.webp",
+        "grandes": [
+          "img/viv-riz-local-01-a.webp",
+          "img/viv-riz-local-01-b.webp"
+        ]
+      },
+      "mis_a_jour": "2026-10-05"
+    },
+    {
+      "id": "viv-gari-01",
+      "nom": "Gari",
+      "categorie": "vivriers",
+      "prix": 0,
+      "etat": "neuf",
+      "stock": 0,
+      "unite": "kg",
+      "garantie_jours": 0,
+      "description": "À compléter : origine, conditionnement, conservation.",
+      "caracteristiques": [
+        "Origine : à compléter"
+      ],
+      "photos": {
+        "miniature": "img/viv-gari-01-m.webp",
+        "grandes": [
+          "img/viv-gari-01-a.webp",
+          "img/viv-gari-01-b.webp"
+        ]
+      },
+      "mis_a_jour": "2026-10-05"
+    },
+    {
+      "id": "viv-haricot-01",
+      "nom": "Haricot",
+      "categorie": "vivriers",
+      "prix": 0,
+      "etat": "neuf",
+      "stock": 0,
+      "unite": "kg",
+      "garantie_jours": 0,
+      "description": "À compléter : origine, conditionnement, conservation.",
+      "caracteristiques": [
+        "Origine : à compléter"
+      ],
+      "photos": {
+        "miniature": "img/viv-haricot-01-m.webp",
+        "grandes": [
+          "img/viv-haricot-01-a.webp",
+          "img/viv-haricot-01-b.webp"
+        ]
+      },
+      "mis_a_jour": "2026-10-05"
+    },
+    {
+      "id": "viv-huile-palme-01",
+      "nom": "Huile de palme",
+      "categorie": "vivriers",
+      "prix": 0,
+      "etat": "neuf",
+      "stock": 0,
+      "unite": "litre",
+      "garantie_jours": 0,
+      "description": "À compléter : origine, conditionnement, conservation.",
+      "caracteristiques": [
+        "Origine : à compléter"
+      ],
+      "photos": {
+        "miniature": "img/viv-huile-palme-01-m.webp",
+        "grandes": [
+          "img/viv-huile-palme-01-a.webp",
+          "img/viv-huile-palme-01-b.webp"
+        ]
+      },
+      "mis_a_jour": "2026-10-05"
+    },
+    {
+      "id": "viv-igname-01",
+      "nom": "Igname",
+      "categorie": "vivriers",
+      "prix": 0,
+      "etat": "neuf",
+      "stock": 0,
+      "unite": "tas",
+      "perissable": true,
+      "garantie_jours": 0,
+      "description": "À compléter : origine, conditionnement, conservation.",
+      "caracteristiques": [
+        "Origine : à compléter"
+      ],
+      "photos": {
+        "miniature": "img/viv-igname-01-m.webp",
+        "grandes": [
+          "img/viv-igname-01-a.webp",
+          "img/viv-igname-01-b.webp"
+        ]
+      },
+      "mis_a_jour": "2026-10-05"
     }
   ]
 }
-
