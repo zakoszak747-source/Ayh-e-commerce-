@@ -1,7 +1,7 @@
 {
   "boutique": {
     "nom": "AYH Boutique",
-    "whatsapp": "228XXXXXXXX",
+    "whatsapp": "22898311080",
     "livraison": "Livraison partout, convenue par WhatsApp.",
     "horaires": "À compléter",
     "couverture": "img/couverture-m.webp",
@@ -46,7 +46,7 @@
       "categorie": "informatique",
       "prix": 4000,
       "etat": "neuf",
-      "stock": 0,
+      "stock": 10,
       "garantie_jours": 15,
       "description": "Souris sans fil avec récepteur USB.",
       "caracteristiques": [
