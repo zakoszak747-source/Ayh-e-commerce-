@@ -63,17 +63,17 @@
 
     y += 10; x.fillStyle = NUIT; x.fillRect(M, y, L - 2 * M, 3); y += 52;
     T('Article', M, y, '700 26px ' + F, GRIS);
-    T('Qté', 650, y, '700 26px ' + F, GRIS, 'center');
-    T('Prix', 840, y, '700 26px ' + F, GRIS, 'right');
+    T('Qté', 520, y, '700 26px ' + F, GRIS, 'center');
+    T('Prix', 740, y, '700 26px ' + F, GRIS, 'right');
     T('Total', L - M, y, '700 26px ' + F, GRIS, 'right');
     y += 24;
     lignes.forEach(function (l) {
       y += 14;
-      var n = W(l.nom || '', M, y + 30, 500, '600 30px ' + F, NUIT, 38);
+      var n = W(l.nom || '', M, y + 30, 420, '600 30px ' + F, NUIT, 38);
       if (l.variante) { T(l.variante, M, y + 30 + n * 38 - 4, '400 24px ' + F, GRIS); n++; }
-      T(String(l.q), 650, y + 30, '600 30px ' + F, NUIT, 'center');
-      T(fcfa(l.pu), 840, y + 30, '400 28px ' + F, NUIT, 'right');
-      if (l.unite) T('/ ' + l.unite, 840, y + 58, '400 22px ' + F, GRIS, 'right');
+      T(String(l.q), 520, y + 30, '600 30px ' + F, NUIT, 'center');
+      T(fcfa(l.pu), 740, y + 30, '400 28px ' + F, NUIT, 'right');
+      if (l.unite) T('/ ' + l.unite, 740, y + 58, '400 22px ' + F, GRIS, 'right');
       T(fcfa(l.q * l.pu), L - M, y + 30, '700 30px ' + F, NUIT, 'right');
       y += Math.max(n * 38, l.unite ? 66 : 38) + 22;
       x.fillStyle = '#d5dbe4'; x.fillRect(M, y - 8, L - 2 * M, 2);
