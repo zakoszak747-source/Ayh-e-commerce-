@@ -28,7 +28,7 @@
       "categorie": "accessoires",
       "prix": 4000,
       "etat": "neuf",
-      "stock": 0,
+      "stock": 10,
       "garantie_jours": 15,
       "description": "Souris sans fil avec récepteur USB.",
       "caracteristiques": ["Sans fil 2,4 GHz", "Pile incluse"],
