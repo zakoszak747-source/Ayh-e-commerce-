@@ -3,6 +3,7 @@
     "nom": "AYH",
     "whatsapp": "22898311080",
     "retrait":"Livraison partout, convenue par WhatsApp.",
+    "couverture": "img/couverture-m.webp",
     "message_commande": "Bonjour AYH, je voudrais commander : {nom} ({prix} FCFA). Réf : {id}"
   },
   "produits": [
