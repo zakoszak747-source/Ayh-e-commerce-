@@ -1,7 +1,7 @@
 /* AYH Boutique - service worker.
    Pour publier une mise à jour de l'appli, change VERSION ci-dessous.
    Convention : les miniatures se terminent par -m (ex. img/usb-32-01-m.webp). */
-var VERSION = 'v8';
+var VERSION = 'v9';
 var SHELL = 'ayh-shell-' + VERSION;
 var MINI = 'ayh-mini';
 var PHOTOS = 'ayh-photos';
