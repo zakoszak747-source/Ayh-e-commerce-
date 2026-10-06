@@ -1,7 +1,7 @@
 {
   "boutique": {
     "nom": "AYH Boutique",
-    "whatsapp": "22898311080",
+    "whatsapp": "228XXXXXXXX",
     "livraison": "Livraison partout, convenue par WhatsApp.",
     "horaires": "À compléter",
     "couverture": "img/couverture-m.webp",
@@ -12,7 +12,8 @@
       "chaussures": "Chaussures",
       "telephones": "Téléphones",
       "accessoires-telephone": "Accessoires téléphone",
-      "vivriers": "Produits vivriers"
+      "vivriers": "Produits vivriers",
+      "chocolat": "Produits chocolatiers"
     }
   },
   "produits": [
@@ -46,7 +47,7 @@
       "categorie": "informatique",
       "prix": 4000,
       "etat": "neuf",
-      "stock": 10,
+      "stock": 0,
       "garantie_jours": 15,
       "description": "Souris sans fil avec récepteur USB.",
       "caracteristiques": [
@@ -590,6 +591,145 @@
         "grandes": [
           "img/viv-igname-01-a.webp",
           "img/viv-igname-01-b.webp"
+        ]
+      },
+      "mis_a_jour": "2026-10-05"
+    },
+    {
+      "id": "choc-tablette-noir-01",
+      "nom": "Tablette de chocolat noir",
+      "categorie": "chocolat",
+      "prix": 0,
+      "etat": "neuf",
+      "stock": 0,
+      "unite": "tablette",
+      "garantie_jours": 0,
+      "description": "À compléter : poids, composition, date limite de consommation.",
+      "caracteristiques": [
+        "Poids : à compléter",
+        "Cacao : à compléter %",
+        "Conservation : à l'abri de la chaleur"
+      ],
+      "photos": {
+        "miniature": "img/choc-tablette-noir-01-m.webp",
+        "grandes": [
+          "img/choc-tablette-noir-01-a.webp",
+          "img/choc-tablette-noir-01-b.webp"
+        ]
+      },
+      "mis_a_jour": "2026-10-05"
+    },
+    {
+      "id": "choc-tablette-lait-01",
+      "nom": "Tablette de chocolat au lait",
+      "categorie": "chocolat",
+      "prix": 0,
+      "etat": "neuf",
+      "stock": 0,
+      "unite": "tablette",
+      "garantie_jours": 0,
+      "description": "À compléter : poids, composition, date limite de consommation.",
+      "caracteristiques": [
+        "Poids : à compléter",
+        "Conservation : à l'abri de la chaleur"
+      ],
+      "photos": {
+        "miniature": "img/choc-tablette-lait-01-m.webp",
+        "grandes": [
+          "img/choc-tablette-lait-01-a.webp",
+          "img/choc-tablette-lait-01-b.webp"
+        ]
+      },
+      "mis_a_jour": "2026-10-05"
+    },
+    {
+      "id": "choc-poudre-cacao-01",
+      "nom": "Poudre de cacao",
+      "categorie": "chocolat",
+      "prix": 0,
+      "etat": "neuf",
+      "stock": 0,
+      "unite": "sachet",
+      "garantie_jours": 0,
+      "description": "À compléter : poids, composition, date limite de consommation.",
+      "caracteristiques": [
+        "Poids : à compléter",
+        "Origine : à compléter"
+      ],
+      "photos": {
+        "miniature": "img/choc-poudre-cacao-01-m.webp",
+        "grandes": [
+          "img/choc-poudre-cacao-01-a.webp",
+          "img/choc-poudre-cacao-01-b.webp"
+        ]
+      },
+      "mis_a_jour": "2026-10-05"
+    },
+    {
+      "id": "choc-pate-tartiner-01",
+      "nom": "Pâte à tartiner au chocolat",
+      "categorie": "chocolat",
+      "prix": 0,
+      "etat": "neuf",
+      "stock": 0,
+      "unite": "pot",
+      "garantie_jours": 0,
+      "description": "À compléter : poids, composition, date limite de consommation.",
+      "caracteristiques": [
+        "Poids : à compléter",
+        "Composition : à compléter"
+      ],
+      "photos": {
+        "miniature": "img/choc-pate-tartiner-01-m.webp",
+        "grandes": [
+          "img/choc-pate-tartiner-01-a.webp",
+          "img/choc-pate-tartiner-01-b.webp"
+        ]
+      },
+      "mis_a_jour": "2026-10-05"
+    },
+    {
+      "id": "choc-feves-cacao-01",
+      "nom": "Fèves de cacao",
+      "categorie": "chocolat",
+      "prix": 0,
+      "etat": "neuf",
+      "stock": 0,
+      "unite": "kg",
+      "garantie_jours": 0,
+      "description": "À compléter : poids, composition, date limite de consommation.",
+      "caracteristiques": [
+        "Origine : à compléter",
+        "État : séchées ou fermentées, à compléter"
+      ],
+      "photos": {
+        "miniature": "img/choc-feves-cacao-01-m.webp",
+        "grandes": [
+          "img/choc-feves-cacao-01-a.webp",
+          "img/choc-feves-cacao-01-b.webp"
+        ]
+      },
+      "mis_a_jour": "2026-10-05"
+    },
+    {
+      "id": "choc-coffret-01",
+      "nom": "Coffret de chocolats (cadeau)",
+      "categorie": "chocolat",
+      "prix": 0,
+      "etat": "neuf",
+      "stock": 0,
+      "unite": "coffret",
+      "garantie_jours": 0,
+      "description": "À compléter : poids, composition, date limite de consommation.",
+      "caracteristiques": [
+        "Contenu : à compléter",
+        "Poids : à compléter"
+      ],
+      "photos": {
+        "miniature": "img/choc-coffret-01-m.webp",
+        "grandes": [
+          "img/choc-coffret-01-a.webp",
+          "img/choc-coffret-01-b.webp"
         ]
       },
       "mis_a_jour": "2026-10-05"
