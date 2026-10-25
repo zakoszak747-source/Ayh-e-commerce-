@@ -67,9 +67,9 @@
       "id": "vet-chemise-pagne-01",
       "nom": "Chemise",
       "categorie": "vetements",
-      "prix": 0,
+      "prix": 2500,
       "etat": "neuf",
-      "stock": 0,
+      "stock": 10,
       "tailles": [
         "S",
         "M",
